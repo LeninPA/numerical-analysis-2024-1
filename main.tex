@@ -1,0 +1,107 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{longtable}
+\usepackage{enumitem}[shortlabels]					% Para personalizar listas
+\usepackage{dirtytalk}
+
+\usepackage[spanish, mexico]{babel}
+    \decimalpoint
+\usepackage[colorlinks,linkcolor=black,urlcolor=black,citecolor=black, breaklinks=true]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes}
+\usetikzlibrary{automata}
+\usetikzlibrary{cd}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[intlimits]{amsmath}
+\usepackage{fullpage}
+% \usepackage[osf,sc]{mathpazo} % Uncomment for Palatino and comment out the next line
+\usepackage[frenchstyle,widermath,narrowiints,fullsumlimits,fullintlimits]{kpfonts} % Comment out and uncomment the previous line for Palatino
+\linespread{1.05}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsxtra}
+\usepackage{amssymb}
+\usepackage{mathdots}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{stmaryrd}
+\usepackage{titlesec}
+\usepackage{systeme}
+\usepackage[titles]{tocloft}
+\usepackage{textcase}
+\usepackage{setspace}
+\usepackage{xfrac}
+\usepackage{mathtools}
+\usepackage{faktor}
+\usepackage{cancel}
+\usepackage{mparhack}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage[fixlanguage]{babelbib}
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage{forest}
+\usepackage{xparse}
+\usepackage{ytableau} %Diagramas de Young
+\usepackage[
+            hyperref=true, % También puede ser auto
+            style=nature
+            ]{biblatex}
+\addbibresource{biblio.bib}
+\usepackage{nicematrix}
+\usepackage{macros_math}
+\NiceMatrixOptions{cell-space-limits = 2pt}
+% paquetes para obtener el 1 bomnito
+\usepackage[bb=dsserif]{mathalpha}
+\usepackage{bm}
+\newcommand\Bbbbone{%
+  \ifdefined\mathbbb%
+    \mathbbb{1}%
+  \else%
+    \boldsymbol{\mathbb{1}}%
+  \fi}
+
+\usepackage[spanish]{cleveref} 
+
+\renewcommand{\labelenumi}{\alph{enumi})}
+\title{Tarea 1 --- Análisis Numérico}
+\author{
+Pavón Alvarez, Lenin
+%\and 
+}
+\date{Otoño 2023}
+%
+\allowdisplaybreaks
+\begin{document}
+\maketitle
+\section{Problema 1}
+\begin{displayquote}
+    Encuentra todas las iteraciones de los problemas bien y mal planeados para el sistema de $3\times 3$ ecuaciones lineales.
+\end{displayquote}
+Tengamos nuestro sistema de ecuaciones 
+\begin{align*}
+a_1x+b_1y+c_1z&=d_1\\
+a_2x+b_2y+c_2z&=d_2\\
+a_3x+b_3y+c_3z&=d_3
+\end{align*}
+Donde podemos asociarlo a una matriz $A$ con los coeficientes $a_i,b_i,c_i$, y al vector $\Vec{x}=(x,y,z)$ con las direcciones y $d=(d_1,d_2,d_3)$ el vector columna con el lado izquierdo de la igualdad. Por tanto podemos asociar el sistema de ecuaciones anterior a
+\[A\Vec{x}=d\]
+\paragraph{Caso 1.} Notemos ahora que por resultados de álgebra lineal sólo hay un problema bien planteado, el caso en el que $\rank A=3$ puesto que la dimensión del espacio de soluciones, es decir $\ker A$ sigue el teorema de rango nulidad, y como estamos lidiando con planos en el espacio de $\rr^3$, la dimensión del espacio vectorial es $3$, así
+$\ker A=\dim\rr^3-\rank A=0$
+Por lo que va a ser un solo punto: la solución del sistema de ecuaciones. Así como la solución existe, es única, y depende de las condiciones iniciales; el problema está bien planteado.
+\paragraph{Caso 2.} Cuando $\rank A=2$ vamos a tener que $\ker A=1$ y por tanto va a haber un conjunto de soluciones infinitas. Esto se debe a que un plano se puede escribir como la combinación lineal de los otros dos. 
+\par Suponiendo que $d=(0,0,0)$, esto significa que la intersección de los tres planos es una recta que pasa por el origen. Al momento de trasladarlo se generan otros casos interesantes donde pasa de haber una recta a dos o tres. En cualquier caso al no ser única la solución, el problema no está bien definido.
+\paragraph{Caso 3.} Cuando $\rank A=1$ esto significa que todos los planos son el mismo. Por tanto, hay una cantidad infinita de soluciones y el problema no está bien planeado.
+\paragraph{Caso 4.} Cuando $\rank A=0$ esto significa que todos los coeficientes de $A$ son cero, por lo que la intersección de los planos cero es todo el espacio de $\rr^3$ y por tanto como la solución no es única, el problema no está bien planteado
+\end{document}
+
+
+
+
+
+
